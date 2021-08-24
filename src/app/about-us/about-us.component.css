@@ -1,0 +1,7 @@
+.about-card{
+    margin-top: 1rem;
+    box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.4);
+}
+.card-body h4, p{
+    font-weight: bold;
+}
