@@ -18,3 +18,7 @@
 .card-registration .select-arrow {
   top: 13px;
 }
+
+input.ng-invalid.ng-touched{
+    border: 2px solid rgb(247, 60, 60);
+}

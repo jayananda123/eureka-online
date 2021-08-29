@@ -1,23 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light" id="navBar">
     <div class="container">
-        <a class="navbar-brand" href="#">Eureka Online</a>
+        <a class="navbar-brand">Eureka Online</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item" (click)="onSelect('home')">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <li class="nav-item" *ngIf="!isAuthenticated">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/"
+                        [routerLinkActiveOptions]="{exact: true}">Home</a>
                 </li>
-                <li class="nav-item" (click)="onSelect('examination')">
-                    <a class="nav-link" href="#">Examination</a>
+                <li class="nav-item" *ngIf="!isAuthenticated">
+                    <a class="nav-link" routerLinkActive="active" routerLink="student">Student</a>
                 </li>
-                <li class="nav-item" (click)="onSelect('about-us')">
-                    <a class="nav-link" href="#">About Us</a>
+                <li class="nav-item" *ngIf="isAuthenticated">
+                    <a class="nav-link" routerLinkActive="active" routerLink="examination">Examination</a>
                 </li>
-                <li class="nav-item" (click)="onSelectLogin()">
-                    <a class="nav-link" href="#">Login</a>
+                <li class="nav-item" *ngIf="!isAuthenticated">
+                    <a class="nav-link" routerLinkActive="active" routerLink="about-us">About
+                        Us</a>
+                </li>
+                <li class="nav-item" *ngIf="!isAuthenticated">
+                    <a class="nav-link" routerLinkActive="active" routerLink="auth">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="isAuthenticated">
+                    <a class="nav-link" style="cursor: pointer;" (click)="onLogout()">Logout</a>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,1 @@
+export interface Post { emailAddress: string, password: string; birthdayDate: string, course: string, firstName: string, lastName: string, inlineRadioOption: string, passwordX: string, phoneNumber: string, id?: string }

@@ -1,0 +1,76 @@
+<nav class="navbar">
+    <div class="container">
+        <h3>Dashboard</h3>
+        <div class="navbar-header">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <form class="row g-3" #adminData="ngForm" (ngSubmit)="onAdminSubmit(adminData)">
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Question Type</label>
+                <select id="inputState" class="form-select" [ngModel]="defaultChoice" name="questionFormat">
+                    <option disabled>Choose...</option>
+                    <option value="radio">Single Choice</option>
+                    <option value="checkbox">Multiple Choice</option>
+                    <option value="text">Text Format</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Programming Language</label>
+                <select id="inputState" class="form-select" [ngModel]="defaultProgramm" name="programming">
+                    <option disabled>Choose...</option>
+                    <option value="Java Programming">Java Programming</option>
+                    <option value="Python Programming">Python Programming</option>
+                    <option value="C Programming">C Programming</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="inputQuestion" class="form-label">Question:</label>
+                <textarea name="question" id="" class="form-control" rows="1" placeholder="Enter Question here..."
+                    ngModel required></textarea>
+            </div>
+            <p class="text-danger">Note: Click checkbox for correct answer</p>
+            <div class="col-6">
+                <input type="checkbox" name="answer1" ngModel><label for="inputOption1" class="form-label">&nbsp;
+                    Option 1</label>
+                <textarea name="option1" id="" class="form-control" rows="2" ngModel required></textarea>
+            </div>
+            <div class="col-6">
+                <input type="checkbox" name="answer2" ngModel><label for="inputOption2" class="form-label">&nbsp;
+                    Option 2</label>
+                <textarea name="option2" id="" class="form-control" rows="2" ngModel required></textarea>
+            </div>
+            <div class="col-6">
+                <input type="checkbox" name="answer3" ngModel><label for="inputOption3" class="form-label">&nbsp;
+                    Option 3</label>
+                <textarea ngModel name="option3" id="" class="form-control" rows="2"></textarea>
+            </div>
+            <div class="col-6">
+                <input type="checkbox" name="answer4" ngModel><label for="inputOption4" class="form-label">&nbsp;
+                    Option 4</label>
+                <textarea ngModel name="option4" id="" class="form-control" rows="2"></textarea>
+            </div>
+
+            <!-- <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+            </div> -->
+            <div class="col-12 mb-4">
+                <button type="submit" class="btn btn-primary">Add Next</button>
+                <button type="button" class="btn btn-danger ms-3" (click)="onClickClear()">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>

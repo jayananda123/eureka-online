@@ -8,3 +8,11 @@
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(204, 204, 204))
 }
+input.ng-invalid.ng-touched{
+    border: 2px solid rgb(247, 60, 60);
+}
+.spinner-border{
+ position: absolute;
+    
+  z-index: 10;
+}

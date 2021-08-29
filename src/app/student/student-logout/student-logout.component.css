@@ -1,0 +1,12 @@
+.stud-logout{
+    float: right;
+}
+.navbar-header a{
+    font-weight: bold;
+    color: rgb(189, 119, 255);
+    cursor: pointer;
+}
+.navbar-header a:active{
+    color: rgb(40, 0, 87);
+    cursor: pointer;
+}

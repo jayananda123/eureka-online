@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 
 @Component({
@@ -6,20 +8,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  @Output() featureSelected = new EventEmitter<string>();
-  @Output() btnSelected = new EventEmitter<boolean>();
+export class HeaderComponent implements OnInit, OnDestroy {
+  isAuthenticated = false;
+  private userSub: Subscription;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;   //!user ? false : true;
+
+    });
   }
-  onSelect(feature: string) {
-    this.featureSelected.emit(feature);
+
+  onLogout() {
+    this.authService.logout();
   }
-  onSelectLogin() {
-    this.btnSelected.emit();
-    console.log("Header File  " + this.btnSelected);
+
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
 
   }
 
